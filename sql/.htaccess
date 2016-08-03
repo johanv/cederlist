@@ -1,0 +1,4 @@
+# Vermijd dat users hier komen rondsnuffelen.
+
+Order allow,deny
+Deny from all

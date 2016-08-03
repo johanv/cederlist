@@ -1,0 +1,8 @@
+# Fijne hack die alle requests aflevert op index.php.
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
+
+RewriteRule ^([a-zA-Z0-9/]+)$ %2index.php?q=$1&%{QUERY_STRING}
