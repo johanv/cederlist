@@ -18,20 +18,36 @@
 
 namespace deceder\command;
 
+use deceder\controller\Request;
+use deceder\controller\ViewResult;
+use deceder\data\Data;
+use deceder\logic\Inschrijving;
+
 /**
  * Commando voor bevestigen van inschrijving.
  *
  * @author johanv
  */
-class Bevestigen extends Command {
-  public function getRequiredPermissions() {
-    return array('zichzelf inschrijven');
-  }
+class Bevestigen extends Command
+{
+    /**
+     * @return array
+     */
+    public function getRequiredPermissions()
+    {
+        return array('zichzelf inschrijven');
+    }
 
-  public function execute(\deceder\controller\Request $request) {
-    // Toegegeven. De user ophalen is omslachtig.
-    $user = \deceder\data\Data::getInstance()->getUserFromKey($request->getGet('info'));
-    \deceder\logic\Inschrijving::bevestigen($user);
-    return new \deceder\controller\ViewResult($user);
-  }
+    /**
+     * @param  Request $request
+     * @return ViewResult
+     */
+    public function execute(Request $request)
+    {
+        // Toegegeven. De user ophalen is omslachtig.
+        $user = Data::getInstance()->getUserFromKey($request->getGet('info'));
+        Inschrijving::bevestigen($user);
+
+        return new ViewResult($user);
+    }
 }
