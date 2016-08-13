@@ -18,18 +18,32 @@
 
 namespace deceder\command;
 
+use deceder\controller\Request;
+use deceder\controller\ViewResult;
+use deceder\data\Data;
+
 /**
  * Toont het overzicht van oude nieuwsbrieven.
  *
  * @author johanv
  */
-class Archief extends Command {
-  public function getRequiredPermissions() {
-    return array('archief raadplegen');
-  }
-  
-  public function execute(\deceder\controller\Request $request) {
-    $edities = \deceder\data\Data::getInstance()->getAllVerzondenNieuwsbrieven();
-    return new \deceder\controller\ViewResult($edities);
-  }
+class Archief extends Command
+{
+    /**
+     * @return array
+     */
+    public function getRequiredPermissions()
+    {
+        return ['archief raadplegen'];
+    }
+
+    /**
+     * @param  Request $request
+     * @return ViewResult
+     */
+    public function execute(Request $request)
+    {
+        $edities = Data::getInstance()->getAllVerzondenNieuwsbrieven();
+        return new ViewResult($edities);
+    }
 }

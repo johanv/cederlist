@@ -17,39 +17,52 @@
  */
 
 namespace deceder\command;
+use deceder\controller\Mapper;
+use deceder\controller\RedirectResult;
+use deceder\controller\ViewResult;
+use deceder\logic\Nieuwsbrief;
+use deceder\validation\NieuwsbriefValidator;
 
 /**
  * Commando voor nieuwsbrief uploaden.
  *
  * @author johanv
  */
-class Upload extends Command {
-  public function getRequiredPermissions() {
-    return array('nieuwsbrief uploaden');
-  }
-
-  public function execute(\deceder\controller\Request $request) {
-    if ($request->getPost('isIngevuld')) {
-      $nieuwsbrief = \deceder\controller\Mapper::mapNieuwsbrief($request);
-      // Valideren: als er bijlage is, moet ze pdf zijn, en mag ze niet te
-      // groot zijn.
-      // Op termijn misschien ook of begeleidende tekst wel degelijk plain
-      // text is, en of tokens wel kloppen.
-      $errors = \deceder\validation\NieuwsbriefValidator::validate($nieuwsbrief);
-      if (count($errors) == 0) {
-        // We doen voorlopig zowel registreren als verzenden.
-        \deceder\logic\Nieuwsbrief::registreren($nieuwsbrief);
-        \deceder\logic\Nieuwsbrief::verzenden($nieuwsbrief);
-        return new \deceder\controller\RedirectResult('archief');
-      }
-      $model = $nieuwsbrief;
+class Upload extends Command
+{
+    /**
+     * @return array
+     */
+    public function getRequiredPermissions()
+    {
+        return ['nieuwsbrief uploaden'];
     }
-    else {
-      $model = new \deceder\model\Nieuwsbrief();
-      $errors = array();
-    }
-    return new \deceder\controller\ViewResult($model, $errors);
-  }
 
-//put your code here
+    public function execute(\deceder\controller\Request $request)
+    {
+        if ($request->getPost('isIngevuld')) {
+            $nieuwsbrief = Mapper::mapNieuwsbrief($request);
+
+            // Valideren: als er bijlage is, moet ze pdf zijn, en mag ze niet te
+            // groot zijn.
+            // Op termijn misschien ook of begeleidende tekst wel degelijk plain
+            // text is, en of tokens wel kloppen.
+            $errors = NieuwsbriefValidator::validate($nieuwsbrief);
+
+            if (count($errors) == 0) {
+                // We doen voorlopig zowel registreren als verzenden.
+                Nieuwsbrief::registreren($nieuwsbrief);
+                Nieuwsbrief::verzenden($nieuwsbrief);
+
+                return new RedirectResult('archief');
+            }
+
+            $model = $nieuwsbrief;
+        } else {
+            $model = new \deceder\model\Nieuwsbrief();
+            $errors = [];
+        }
+
+        return new ViewResult($model, $errors);
+    }
 }

@@ -18,23 +18,35 @@
 
 namespace deceder\command;
 
+use deceder\controller\Request;
+use deceder\controller\ViewResult;
+use deceder\data\Data;
+use deceder\logic\Inschrijving;
+
 /**
  * Description of uitschrijven
  *
  * @author johanv
  */
-class Uitschrijven extends command {
-  public function getRequiredPermissions() {
-    return array('zichzelf uitschrijven');
-  }
-
-  public function execute(\deceder\controller\Request $request) {
-    // Toegegeven. De user ophalen is omslachtig.
-    $user = \deceder\data\Data::getInstance()->getUserFromKey($request->getGet('info'));
-    if ($request->isPost()) {
-      \deceder\logic\Inschrijving::uitschrijven($user);
-      return new \deceder\controller\ViewResult($user, array(), 'inschrijvingsstatus');
+class Uitschrijven extends command
+{
+    /**
+     * @return array
+     */
+    public function getRequiredPermissions()
+    {
+        return ['zichzelf uitschrijven'];
     }
-    return new \deceder\controller\ViewResult($user);
-  }
+
+    public function execute(Request $request)
+    {
+        // Toegegeven. De user ophalen is omslachtig.
+        $user = Data::getInstance()->getUserFromKey($request->getGet('info'));
+
+        if ($request->isPost()) {
+            Inschrijving::uitschrijven($user);
+            return new ViewResult($user, [], 'inschrijvingsstatus');
+        }
+        return new ViewResult($user);
+    }
 }

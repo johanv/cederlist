@@ -18,24 +18,27 @@
 
 namespace deceder\command;
 
+use deceder\controller\Request;
+
 /**
  * Abstract command.
  *
  * @author johanv
  */
-abstract class Command {
-  /**
-   * Executes the $request, and returns a result.
-   * 
-   * @param deceder\controller\Request $request
-   * @return deceder\controller\Result.
-   */
-  abstract function execute(\deceder\controller\Request $request);
-  
-  /**
-   * Returns an array of required permissions to run the command.
-   * 
-   * @return array of permissions (strings).
-   */
-  abstract function getRequiredPermissions();
+abstract class Command
+{
+    /**
+     * Executes the $request, and returns a result.
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    abstract function execute(Request $request);
+
+    /**
+     * Returns an array of required permissions to run the command.
+     *
+     * @return array of permissions (strings).
+     */
+    abstract function getRequiredPermissions();
 }

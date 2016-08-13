@@ -49,12 +49,13 @@ class Mapper {
 
     return $result;
   }
-  
-  /**
-   * Map rij van nieuwsbrieftabel naar nieuwsbriefobject.
-   * 
-   * @param type $row Te mappen rij.
-   */
+
+    /**
+     * Map rij van nieuwsbrieftabel naar nieuwsbriefobject.
+     *
+     * @param type $row Te mappen rij.
+     * @return \deceder\model\Nieuwsbrief|null
+     */
   public static function mapNieuwsbrief($row) {
     if (empty($row)) {
       return NULL;

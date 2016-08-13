@@ -17,34 +17,51 @@
  */
 
 namespace deceder\command;
+use deceder\controller\Mapper;
+use deceder\controller\ViewResult;
+use deceder\logic\Inschrijving;
+use deceder\model\User;
+use deceder\validation\UserValidator;
 
 /**
  * Commando voor 'inschrijving aanvragen'.
  *
  * @author johanv
  */
-class Inschrijven extends Command {
-  public function getRequiredPermissions() {
-    // Voor dit commando heb je de permissie 'inschrijving aanvragen' nodig.
-    return array('inschrijving aanvragen');
-  }
-  
-  public function execute(\deceder\controller\Request $request) {
-    if ($request->isPost()) {
-      // haal user-object uit POST-data van het request.
-      $user = \deceder\controller\Mapper::mapUser($request);
-      $errors = \deceder\validation\UserValidator::validate($user);
-      if (count($errors) == 0) {
-        // Hmmm. Veel geneste ifs. Het lijkt erop dat dit nog wat
-        // verbeterd kan worden.
-        $ingeschrevenUser = \deceder\logic\Inschrijving::aanvragen($user);
-        return new \deceder\controller\ViewResult($ingeschrevenUser, array(), 'inschrijvingsstatus');
-      }
+class Inschrijven extends Command
+{
+
+    /**
+     * @return array
+     */
+    public function getRequiredPermissions()
+    {
+        // Voor dit commando heb je de permissie 'inschrijving aanvragen' nodig.
+        return ['inschrijving aanvragen'];
     }
-    else {
-      $user = new \deceder\model\User();
-      $errors = array();
+
+    /**
+     * @param \deceder\controller\Request $request
+     * @return ViewResult
+     */
+    public function execute(\deceder\controller\Request $request)
+    {
+        if ($request->isPost()) {
+            // haal user-object uit POST-data van het request.
+            $user = Mapper::mapUser($request);
+            $errors = UserValidator::validate($user);
+
+            if (count($errors) == 0) {
+                // Hmmm. Veel geneste ifs. Het lijkt erop dat dit nog wat
+                // verbeterd kan worden.
+                $ingeschrevenUser = Inschrijving::aanvragen($user);
+                return new ViewResult($ingeschrevenUser, [], 'inschrijvingsstatus');
+            }
+        } else {
+            $user = new User();
+            $errors = [];
+        }
+
+        return new ViewResult($user, $errors);
     }
-    return new \deceder\controller\ViewResult($user, $errors);
-  }
 }

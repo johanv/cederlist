@@ -34,7 +34,10 @@ class RedirectResult extends Result {
   public function __construct($path) {
     $this->path = $path;
   }
-  
+
+    /**
+     * @return string
+     */
   public function getPath() {
     return $this->path;
   }
