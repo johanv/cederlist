@@ -21,7 +21,11 @@ namespace deceder\resources;
 /**
  * Default resources file.
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Resources
  */
 class Def {
   static $inschrijfmailSubject = 'Bevestiging inschrijving nieuwsbrief %1$s';

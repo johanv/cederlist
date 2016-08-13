@@ -21,7 +21,11 @@ namespace deceder\validation;
 /**
  * Validatie van een nieuwsbrief (een nummer eigenlijk).
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Validation
  */
 class NieuwsbriefValidator {
   /**

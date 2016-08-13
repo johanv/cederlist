@@ -25,7 +25,11 @@ namespace deceder\model;
  * getters en setters werken, zodat het juiste type kan afgedwongen worden.
  * Dat is voor later.
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Model
  */
 class User {
   public $id;

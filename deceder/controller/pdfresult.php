@@ -21,7 +21,11 @@ namespace deceder\controller;
 /**
  * Dit resultaat downloadt een PHP-bestand uit de file storage.
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Controller
  */
 class PdfResult extends Result {
   protected $file;
