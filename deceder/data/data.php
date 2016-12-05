@@ -22,8 +22,12 @@ namespace deceder\data;
  * Abstracte klasse voor data access.
  * 
  * Levert ook een singleton via dewelke data-access kan verlopen.
- * 
- * @author johanv
+ *
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Data
  */
 abstract class Data {
   protected static $theInstance;

@@ -24,7 +24,11 @@ namespace deceder\controller;
  * Misschien moet het request deel uitmaken van een (ruimere) context, daar
  * ben ik nog niet uit.
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Controller
  */
 class Request {
   protected $action = null;

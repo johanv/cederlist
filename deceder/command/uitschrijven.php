@@ -26,7 +26,11 @@ use deceder\logic\Inschrijving;
 /**
  * Description of uitschrijven
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Command
  */
 class Uitschrijven extends command
 {

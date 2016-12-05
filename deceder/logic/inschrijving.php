@@ -21,7 +21,11 @@ namespace deceder\logic;
 /**
  * Klasse met logica voor inschrijvingen.
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Logic
  */
 class Inschrijving {
   /**

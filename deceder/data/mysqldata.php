@@ -20,8 +20,12 @@ namespace deceder\data;
 
 /**
  * Data access via mysql.
- * 
- * @author johanv
+ *
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Data
  */
 class MysqlData extends Data {
   private function getConnection() {

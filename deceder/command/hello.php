@@ -24,7 +24,11 @@ use deceder\controller\ViewResult;
 /**
  * Description of hello
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Command
  */
 class Hello extends Command
 {

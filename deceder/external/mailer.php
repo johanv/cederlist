@@ -21,7 +21,11 @@ namespace deceder\external;
 /**
  * Singleton for sending e-mails.
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category External
  */
 abstract class Mailer {
   protected static $theInstance;

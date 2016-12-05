@@ -23,7 +23,11 @@ namespace deceder\controller;
  * 
  * Dit zit mogelijk niet helemaal op de juiste plaats.
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Controller
  */
 class Mapper {
   public static function mapUser(Request $request) {
@@ -41,7 +45,7 @@ class Mapper {
 
     return $result;
   }
-  
+
   public static function MapNieuwsbrief(Request $request) {
     $result = new \deceder\model\Nieuwsbrief();
     $result->titel = $request->getPost('titel');

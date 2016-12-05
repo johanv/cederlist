@@ -26,7 +26,11 @@ use deceder\logic\Inschrijving;
 /**
  * Commando voor bevestigen van inschrijving.
  *
- * @author johanv
+ * @author   Johanv <johan.vervloet@gmail.be>
+ * @license  Apache License 2.0
+ * @link     https://github.com/johanv/cederlist/blob/master/LICENSE.md
+ * @package  Ciderlist
+ * @category Command
  */
 class Bevestigen extends Command
 {
