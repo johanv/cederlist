@@ -18,18 +18,28 @@
 
 namespace deceder\command;
 
+use deceder\controller\PdfResult;
+use deceder\controller\Request;
+use deceder\data\Data;
+
 /**
  * Description of download
  *
  * @author johanv
  */
-class Download extends Command {
-  public function getRequiredPermissions() {
-    return array('archief raadplegen');
-  }
-  
-  public function execute(\deceder\controller\Request $request) {
-    $nieuwsbrief = \deceder\data\Data::getInstance()->getNieuwsbrief($request->getUrlExtra(0));
-    return new \deceder\controller\PdfResult($nieuwsbrief->bestandsnaam);
-  }
+class Download extends Command
+{
+    /**
+     * @return array
+     */
+    public function getRequiredPermissions()
+    {
+        return ['archief raadplegen'];
+    }
+
+    public function execute(Request $request)
+    {
+        $nieuwsbrief = Data::getInstance()->getNieuwsbrief($request->getUrlExtra(0));
+        return new PdfResult($nieuwsbrief->bestandsnaam);
+    }
 }

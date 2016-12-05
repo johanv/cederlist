@@ -18,29 +18,35 @@
 
 namespace deceder\command;
 
+use deceder\controller\Request;
+use deceder\controller\ViewResult;
+
 /**
  * Description of hello
  *
  * @author johanv
  */
-class Hello extends Command {
-  /**
-   * Om dit commando uit te voeren, heb je 'archief raadplegen'-permissie nodig.
-   * 
-   * @return array of permissions.
-   */
-  public final function getRequiredPermissions() {
-    return array('archief raadplegen');
-  }
-  
-  /**
-   * The Hello command.
-   * 
-   * @param \deceder\controller\Request $request
-   * @return \deceder\controller\Result.
-   */
-  public function execute(\deceder\controller\Request $request) {
-    $result = new \deceder\controller\ViewResult($request->getUrlExtra(0));
-    return $result;
-  }
+class Hello extends Command
+{
+    /**
+     * Om dit commando uit te voeren, heb je 'archief raadplegen'-permissie nodig.
+     *
+     * @return array of permissions.
+     */
+    public final function getRequiredPermissions()
+    {
+        return ['archief raadplegen'];
+    }
+
+    /**
+     * The Hello command.
+     *
+     * @param  Request $request
+     * @return \deceder\controller\Result.
+     */
+    public function execute(Request $request)
+    {
+        $result = new ViewResult($request->getUrlExtra(0));
+        return $result;
+    }
 }

@@ -67,32 +67,50 @@ class Request {
   public function getUrlExtra($i) {
     return $this->urlExtra[$i];
   }
-    
+
+    /**
+     * @param $key
+     * @return mixed|null
+     */
   public function getGet($key) {
     if (isset($this->get) && isset($this->get[$key])) {
       return $this->get[$key];
     }
     return NULL;
   }
-  
+
+    /**
+     * @param $key
+     * @return mixed|null
+     */
   public function getPost($key) {
     if (isset($this->post) && isset($this->post[$key])) {
       return $this->post[$key];
     }
     return NULL;
   }
-  
+
+    /**
+     * @param $key
+     * @return mixed|null
+     */
   public function getFile($key) {
     if (isset($this->files) && isset($this->files[$key])) {
       return $this->files[$key];
     }
     return NULL;
   }
-  
+
+    /**
+     * @return bool
+     */
   public function isPost() {
     return isset($this->post) && count($this->post) > 0;
   }
-  
+
+    /**
+     * @return bool
+     */
   public function hasFiles() {
     return isset($this->files) && count($this->files) > 0;
   }

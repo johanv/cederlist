@@ -33,7 +33,10 @@ class Nieuwsbrief {
   public $uploadedFile;
   public $begeleidendeTekst;
   public $verzendingsdatum;
-  
+
+    /**
+     * Nieuwsbrief constructor.
+     */
   public function __construct() {
     include 'configuration.php';
     $this->begeleidendeTekst = sprintf(\deceder\resources\Def::$nieuwsbriefmail, $ORGANIZATION_NAME);
