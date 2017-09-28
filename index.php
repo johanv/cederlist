@@ -16,9 +16,7 @@
  * limitations under the License.
  */
 
-// Vind magischerwijze de klasses die we nodig hebben.
-spl_autoload_register();
-
+require __DIR__ . '\vendor\autoload.php';
 
 $request = new \deceder\controller\Request();
 

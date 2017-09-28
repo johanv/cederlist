@@ -3,3 +3,6 @@
 
 # netbeans
 /nbproject
+
+/vendor/
+/composer.lock

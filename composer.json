@@ -1,0 +1,18 @@
+{
+    "name": "johanv/cederlist",
+    "description": "Een open-source implementatie omtrent mailing",
+    "type": "project",
+    "license": "Apache License, Version 2.0",
+    "authors": [
+        {
+            "name": "Johan Vervloet",
+            "email": "johan.vervloet@gmail.be"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "deceder\\": "deceder/"
+        }
+    },
+    "require": {}
+}
